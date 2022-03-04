@@ -1,4 +1,5 @@
 //read and set enviromental variables
+<<<<<<< HEAD
 require ("dotenv").config();
 var keys = require ("./keys.js");
 var axios =require ("axios");
@@ -9,9 +10,21 @@ var command= process.argv[2]
 var input= process.argv[3]
 var bandsApi= keys.apiKeys.bands;
 var omdApi= keys.apiKeys.omdb;
+=======
+require("dotenv").config();
+var keys = require ("./keys.js");
+var axios = require ("axios");
+var fs =  require ("fs");
+var moment = require ("moment");
+
+var command = process.argv[2]
+var input = process.argv[3]
+var bandsApi = keys.apiKeys.bands;
+var omdApi = keys.apiKeys.omdb;
+>>>>>>> 580ba595cc70f909fc0677a9d013bd841e11627a
 //spotify//
-var Spotify= require("node-spotify-api")
-var spotify= new Spotify(keys.spotify);
+// var Spotify = require("node-spotify-api")
+// var spotify = new Spotify(keys.spotify);
 
 //movie-this
 
@@ -70,9 +83,9 @@ function doThis() {
     console.log("inside the function dothis")
     fs.readFile("random.txt", "utf8", function (error, data) {
         if (error) {
-             console.log(error);
+            console.log(error);
         }
-        console.log("data: " +data)
+        console.log("data: " + data)
         var dataArr = data.split(",");
         startProg(dataArr[0], dataArr[1]);
 
@@ -95,8 +108,8 @@ function startProg(command, input) {
         default:
             console.log("LIRI doesn't know what you are talking about");
     }
- 
- 
+
+
 }
 startProg(command, input);
 
