@@ -19,7 +19,6 @@
   "homepage": "https://github.com/apham1594/Server-Side-API#readme",
   "dependencies": {
     "axios": "^0.26.0",
-    "dotenv": "^16.0.0",
-    "moment": "^2.29.1"
+    "dotenv": "^16.0.0"
   }
 }
