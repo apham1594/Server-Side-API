@@ -1,14 +1,14 @@
 //read and set enviromental variables
 require("dotenv").config();
-var keys ="require"("./keys.js");
-var axios ="require"("axios");
-var fs ="require"("fs");
-var moment ="require"("moment");
-
+var keys =require("./keys.js");
 var command= process.argv[2]
 var input= process.argv[3]
+var axios =require("axios");
+var fs =require("fs");
+var moment = require("moment");
 var bandsApi= keys.apiKeys.bands;
-var omdApi= keys.apiKeys.omdb;
+
+var omdbApi= keys.apiKeys.omdb;
 //spotify//
 var Spotify= require("node-spotify-api")
 var spotify= new Spotify(keys.spotify);
@@ -17,7 +17,8 @@ var spotify= new Spotify(keys.spotify);
 
 function getMovie(input) {
     console.log("inside movie-this")
-    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=" + omdbApi).then(function (response) {
+    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=" + omdbApi)
+    .then(function (response) {
         //console.log(response.data);
         var moviedata = response.data;
         //console.log(moviedata)
@@ -33,12 +34,12 @@ function getMovie(input) {
 }
 //Bandsintown
 function showConcert(input) {
+    
     // console.log("inside concert-this")
-    axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=" + bandsApi).then(function (response) {
+    axios.get("https://rest.bandsintown.com/artists/{Drake}/?app_id=yOUrSuP3r3ven7aPp-id" + input + "/events?app_id=" + bandsApi)
+    .then(function (response) {
         var concerts = response.data
-        console.log("Venue Name: " + concerts[0].venue.name);
-        console.log("Venue Location: " + concerts[0].venue.city)
-        console.log("Date of Event: " + moment(concerts[0].datetime).format("MM/DD/YYYY h:mm A"))
+      console.log(response);
     }
     );
 
@@ -47,6 +48,7 @@ function showConcert(input) {
 function findSong(input) {
     console.log("inside spotify-this-song")
     //launch spotify// 
+    axios.get("https://rest.spotifyhttps://rest.bandsintown.com/artists/{Drake}/?app_id=yOUrSuP3r3ven7aPp-id")
     spotify.search({ type: 'track', query: input }, function (err, data) {
 
         if (err) {
