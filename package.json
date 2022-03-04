@@ -20,8 +20,16 @@
   "dependencies": {
     "axios": "^0.26.0",
     "dotenv": "^16.0.0",
+<<<<<<< HEAD
     "fs": "^0.0.1-security",
     "moment": "^2.29.1",
     "node-spotify-api": "^1.1.1"
+=======
+<<<<<<< HEAD
+    "js": "^0.1.0",
+=======
+>>>>>>> 580ba595cc70f909fc0677a9d013bd841e11627a
+    "moment": "^2.29.1"
+>>>>>>> 14730d7a4ac3ff73ebaebc04de6c411252699b8d
   }
 }
