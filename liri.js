@@ -1,23 +1,23 @@
 //read and set enviromental variables
 require("dotenv").config();
-var keys ="require"("./keys.js");
-var axios ="require"("axios");
-var fs ="require"("fs");
-var moment ="require"("moment");
+var keys = require ("./keys.js");
+var axios = require ("axios");
+var fs =  require ("fs");
+var moment = require ("moment");
 
-var command= process.argv[2]
-var input= process.argv[3]
-var bandsApi= keys.apiKeys.bands;
-var omdApi= keys.apiKeys.omdb;
+var command = process.argv[2]
+var input = process.argv[3]
+var bandsApi = keys.apiKeys.bands;
+var omdApi = keys.apiKeys.omdb;
 //spotify//
-var Spotify= require("node-spotify-api")
-var spotify= new Spotify(keys.spotify);
+// var Spotify = require("node-spotify-api")
+// var spotify = new Spotify(keys.spotify);
 
 //movie-this
 
 function getMovie(input) {
     console.log("inside movie-this")
-    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=" + omdbApi).then(function (response) {
+    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=" + omdApi).then(function (response) {
         //console.log(response.data);
         var moviedata = response.data;
         //console.log(moviedata)
@@ -70,9 +70,9 @@ function doThis() {
     console.log("inside the function dothis")
     fs.readFile("random.txt", "utf8", function (error, data) {
         if (error) {
-             console.log(error);
+            console.log(error);
         }
-        console.log("data: " +data)
+        console.log("data: " + data)
         var dataArr = data.split(",");
         startProg(dataArr[0], dataArr[1]);
 
@@ -95,8 +95,8 @@ function startProg(command, input) {
         default:
             console.log("LIRI doesn't know what you are talking about");
     }
- 
- 
+
+
 }
 startProg(command, input);
 
