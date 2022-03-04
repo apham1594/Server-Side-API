@@ -17,7 +17,7 @@ var omdApi= keys.apiKeys.omdb;
 
 function getMovie(input) {
     console.log("inside movie-this")
-    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=" + omdApi)
+    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy")
     .then(function (response) {
         //console.log(response.data);
         var moviedata = response.data;
