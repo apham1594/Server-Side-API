@@ -1,23 +1,24 @@
 //read and set enviromental variables
-require("dotenv").config();
-var keys ="require"("./keys.js");
-var axios ="require"("axios");
-var fs ="require"("fs");
-var moment ="require"("moment");
+require ("dotenv").config();
+var keys = require ("./keys.js");
+var axios = require ("axios");
+var fs = require ("fs");
+var moment = require ("moment");
 
 var command= process.argv[2]
 var input= process.argv[3]
 var bandsApi= keys.apiKeys.bands;
 var omdApi= keys.apiKeys.omdb;
 //spotify//
-var Spotify= require("node-spotify-api")
-var spotify= new Spotify(keys.spotify);
+// var Spotify= require ("node-spotify-api")
+// var spotify= new Spotify (keys.spotify);
 
 //movie-this
 
 function getMovie(input) {
     console.log("inside movie-this")
-    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=" + omdbApi).then(function (response) {
+    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=" + omdApi)
+    .then(function (response) {
         //console.log(response.data);
         var moviedata = response.data;
         //console.log(moviedata)
@@ -98,7 +99,7 @@ function startProg(command, input) {
  
  
 }
-startProg(command, input);
+startProg (command, input);
 
 
 
